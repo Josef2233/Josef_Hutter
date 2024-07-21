@@ -1,82 +1,168 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dein Name - Professionelle Website</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Über mich</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 40px;
+        }
+        .header {
+            background-color: #5a9bd4;
+            color: white;
+            padding: 20px;
+            border-radius: 8px 8px 0 0;
+        }
+        .content, .projects, .resume {
+            padding: 20px;
+            text-align: left;
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #555;
+        }
+        p {
+            font-size: 1.1em;
+            color: #666;
+            line-height: 1.6;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            background: #e9ecef;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .shapes {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .circle {
+            width: 80px;
+            height: 80px;
+            background-color: #5a9bd4;
+            border-radius: 50%;
+        }
+        form {
+            margin-top: 20px;
+            text-align: left;
+        }
+        input[type="text"], input[type="email"], textarea {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #5a9bd4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        input[type="submit"]:hover {
+            background-color: #488fcb;
+        }
+        a {
+            color: #5a9bd4;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-  <header class="header">
-    <div class="container header__container">
-      <a href="#" class="logo">Dein Name</a>
-      <nav class="nav">
-        <ul class="nav__list">
-          <li class="nav__item"><a href="#about" class="nav__link">Über mich</a></li>
-          <li class="nav__item"><a href="#portfolio" class="nav__link">Portfolio</a></li>
-          <li class="nav__item"><a href="#contact" class="nav__link">Kontakt</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <div class="container">
+        <div class="header">
+            <h1>Über mich</h1>
+        </div>
+        <div class="content">
+            <p>Hallo! Ich bin [Dein Name], ein erfahrener [Dein Beruf/Fachgebiet]. Ich habe [Anzahl] Jahre Erfahrung in [deinem Tätigkeitsbereich] und habe an zahlreichen Projekten gearbeitet, darunter [Beispiele von Projekten oder Errungenschaften].</p>
+            <p>Meine Leidenschaft für [dein Fachgebiet] hat mich zu vielen spannenden Herausforderungen geführt. Ich habe fundierte Kenntnisse in [relevante Fähigkeiten oder Technologien] und bin immer bestrebt, mich weiterzubilden und neue Fähigkeiten zu erlernen.</p>
+            <div class="shapes">
+                <div class="circle"></div>
+            </div>
+            <p>In meiner Freizeit genieße ich [deine Hobbys oder Interessen]. Diese Aktivitäten helfen mir, neue Perspektiven zu gewinnen und kreativere Lösungen für berufliche Herausforderungen zu finden.</p>
+            <p>Besuchen Sie meine <a href="https://dein-link.de" target="_blank">Website</a> für mehr Informationen.</p>
+        </div>
+        <div class="projects">
+            <h2>Projekte</h2>
+            <ul>
+                <li>
+                    <strong>Projekt 1:</strong> Beschreibung des Projekts, einschließlich der Ziele und Ergebnisse.
+                </li>
+                <li>
+                    <strong>Projekt 2:</strong> Beschreibung des Projekts, einschließlich der Ziele und Ergebnisse.
+                </li>
+                <li>
+                    <strong>Projekt 3:</strong> Beschreibung des Projekts, einschließlich der Ziele und Ergebnisse.
+                </li>
+            </ul>
+            <p>Weitere Details zu meinen Projekten finden Sie auf meiner <a href="projects.html">Projektseite</a>.</p>
+        </div>
+        <div class="resume">
+            <h2>Lebenslauf</h2>
+            <p><strong>Bildung:</strong></p>
+            <ul>
+                <li>
+                    <strong>Abschluss:</strong> Beschreibung des Abschlusses, der Institution und des Jahres.
+                </li>
+                <li>
+                    <strong>Weiterbildung:</strong> Beschreibung der Weiterbildung, der Institution und des Jahres.
+                </li>
+            </ul>
+            <p><strong>Berufserfahrung:</strong></p>
+            <ul>
+                <li>
+                    <strong>Job 1:</strong> Beschreibung des Jobs, der Verantwortlichkeiten und der Dauer.
+                </li>
+                <li>
+                    <strong>Job 2:</strong> Beschreibung des Jobs, der Verantwortlichkeiten und der Dauer.
+                </li>
+                <li>
+                    <strong>Job 3:</strong> Beschreibung des Jobs, der Verantwortlichkeiten und der Dauer.
+                </li>
+            </ul>
+        </div>
+        <form action="#" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
 
-  <main class="main">
-    <section class="hero" id="about">
-      <div class="container hero__container">
-        <h1 class="hero__heading">Dein Name</h1>
-        <p class="hero__text">Dein Slogan oder kurze Beschreibung hier...</p>
-        <a href="#contact" class="hero__button btn">Kontaktiere mich</a>
-      </div>
-    </section>
+            <label for="email">E-Mail:</label>
+            <input type="email" id="email" name="email" required>
 
-    <section class="about" id="about">
-      <div class="container about__container">
-        <h2 class="about__heading">Über mich</h2>
-        <p class="about__text">Hier kommt dein Bio-Text hin, erzähle etwas über dich und deine Expertise...</p>
-      </div>
-    </section>
+            <label for="message">Nachricht:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
 
-    <section class="portfolio" id="portfolio">
-      <div class="container portfolio__container">
-        <h2 class="portfolio__heading">Portfolio</h2>
-        <p class="portfolio__subheading">Hier zeigst du deine besten Projekte...</p>
-        <div class="portfolio__projects">
-          <div class="project">
-            <img src="project1.jpg" alt="Projekt 1" class="project__image">
-            <h3 class="project__title">Projekt 1</h3>
-            <p class="project__description">Kurze Beschreibung des Projekts...</p>
-          </div>
-          </div>
-      </div>
-    </section>
-
-    <section class="contact" id="contact">
-      <div class="container contact__container">
-        <h2 class="contact__heading">Kontakt</h2>
-        <p class="contact__text">So kannst du mich erreichen...</p>
-        <form class="contact__form">
-          <div class="form-group">
-            <label for="name" class="form-label">Name:</label>
-            <input type="text" id="name" name="name" class="form-input" required>
-          </div>
-          <div class="form-group">
-            <label for="email" class="form-label">E-Mail:</label>
-            <input type="email" id="email" name="email" class="form-input" required>
-          </div>
-          <div class="form-group">
-            <label for="message" class="form-label">Nachricht:</label>
-            <textarea id="message" name="message" class="form-textarea" required></textarea>
-          </div>
-          <button type="submit" class="btn form__button">Senden</button>
+            <input type="submit" value="Absenden">
         </form>
-      </div>
-    </section>
-  </main>
+    </div>
+</body>
+</html>
 
-  <footer class="footer">
-    <div class="container footer__container">
-      <p class="footer__text">&copy; 2024 Dein Name</p>
-      <ul class="footer__social">
-        <li class="footer__social-item"><a href="#" class="footer__social-link"><i class="fab fa-facebook-f"></i></a></li>
-        <li class="footer__social-item"><a href="#" class="footer__social-link"><i class="fab fa-twitter"></i></a></li>
-        <li class="footer__social-item"><a href="#" class="footer__social-link"><i class="fab fa-linkedin-in"></i></a></
