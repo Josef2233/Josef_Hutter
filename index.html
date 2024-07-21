@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8">
@@ -42,3 +42,86 @@
   <script src="script.js"></script>
 </body>
 </html>
+-->
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dein Name - Professionelle Website</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header__container">
+      <a href="#" class="logo">Dein Name</a>
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="#about" class="nav__link">Über mich</a></li>
+          <li class="nav__item"><a href="#portfolio" class="nav__link">Portfolio</a></li>
+          <li class="nav__item"><a href="#contact" class="nav__link">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="hero" id="about">
+      <div class="container hero__container">
+        <h1 class="hero__heading">Dein Name</h1>
+        <p class="hero__text">Dein Slogan oder kurze Beschreibung hier...</p>
+        <a href="#contact" class="hero__button btn">Kontaktiere mich</a>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container about__container">
+        <h2 class="about__heading">Über mich</h2>
+        <p class="about__text">Hier kommt dein Bio-Text hin, erzähle etwas über dich und deine Expertise...</p>
+      </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+      <div class="container portfolio__container">
+        <h2 class="portfolio__heading">Portfolio</h2>
+        <p class="portfolio__subheading">Hier zeigst du deine besten Projekte...</p>
+        <div class="portfolio__projects">
+          <div class="project">
+            <img src="project1.jpg" alt="Projekt 1" class="project__image">
+            <h3 class="project__title">Projekt 1</h3>
+            <p class="project__description">Kurze Beschreibung des Projekts...</p>
+          </div>
+          </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container contact__container">
+        <h2 class="contact__heading">Kontakt</h2>
+        <p class="contact__text">So kannst du mich erreichen...</p>
+        <form class="contact__form">
+          <div class="form-group">
+            <label for="name" class="form-label">Name:</label>
+            <input type="text" id="name" name="name" class="form-input">
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label">E-Mail:</label>
+            <input type="email" id="email" name="email" class="form-input">
+          </div>
+          <div class="form-group">
+            <label for="message" class="form-label">Nachricht:</label>
+            <textarea id="message" name="message" class="form-textarea"></textarea>
+          </div>
+          <button type="submit" class="btn form__button">Senden</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__container">
+      <p class="footer__text">&copy; 2024 Dein Name</p>
+      <ul class="footer__social">
+        <li class="footer__social-item"><a href="#" class="footer__social-link"><i class="fab fa-facebook-f"></i></a></li>
+        <li class="footer__social-item"><a href="#" class="footer__social-link"><i class="fab fa-twitter"></i></a
