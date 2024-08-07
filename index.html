@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+    <script src="https://www.google.com/recaptcha/enterprise.js" async defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Josef Hutter</title>
@@ -167,7 +168,8 @@
 
             <label for="message">Nachricht:</label>
             <textarea id="message" name="message" rows="4" required></textarea>
-
+            <div class="g-recaptcha" data-sitekey="6LevbyEqAAAAAJFoNRjEJDNUMLLG-v3xIJyHluUM" data-action="LOGIN"></div>
+        <br/>
             <input type="submit" value="Absenden">
         </form>
     </div>
