@@ -1413,7 +1413,7 @@ outline-color: var(--white-color);
   margin-top: 25rem;
   margin-bottom: 10rem;
   width: auto;
-  height: 120vh; /*auto*/
+  height: auto; /*auto*/
 }
 
 
@@ -1440,6 +1440,7 @@ outline-color: var(--white-color);
   color: var(--bg-color);
 
 }*/
+
 
 
 
