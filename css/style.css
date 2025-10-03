@@ -1387,7 +1387,6 @@ outline-color: var(--white-color);
 .back-video {
   position: absolute;
   width: auto;
-  heigt: 150vh;
   max-width: 70%;
   position: center;
   justify-content: center;
@@ -1414,7 +1413,7 @@ outline-color: var(--white-color);
   margin-top: 25rem;
   margin-bottom: 10rem;
   width: auto;
-  height: auto;
+  height: 120vh; /*auto*/
 }
 
 
@@ -1441,6 +1440,7 @@ outline-color: var(--white-color);
   color: var(--bg-color);
 
 }*/
+
 
 
 
