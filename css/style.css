@@ -1387,6 +1387,7 @@ outline-color: var(--white-color);
 .back-video {
   position: absolute;
   width: auto;
+  height: auto;
   max-width: 70%;
   position: center;
   justify-content: center;
@@ -1438,4 +1439,5 @@ outline-color: var(--white-color);
 *::selection {
   background: var(--main-color);
   color: var(--bg-color);
+
 }*/
