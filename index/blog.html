@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="de">
+
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="../images/icons8-carrier-50.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="../images/icons8-carrier-50.png">
+    <title>Mein Blog</title>
+
+    <!-- touch swiperjs css -->
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+    <!-- box icons -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />  
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+
+
+  </head>
+
+
+  <body>
+
+        <i class="bx bx-menu" id="menu-icon"></i>
+
+
+<nav class="navbar">
+  <div class="dropdown-wrapper">
+  <div class="dropdown">
+    <button class="dropbtn">Navigation ▾ </button>
+    <div class="dropdown-content">
+      <a href="#section1">Section 1</a>
+      <a href="#section2">Section 2</a>
+      <a href="#section3">Section 3</a>
+    </div>
+  </div>
+</div>
+    <i id="darkMode-icon" class="bx bx-moon"></i>
+</nav>
+
+
+
+
+
+
+    <div class="blog"> 
+
+        <h1>Mein <span>Blog</span>!</h1>
+        <main>
+    <article>
+      <h2>Mein erster Blogeintrag</h2>
+      <p>Dies ist der Inhalt meines ersten Blogposts. Hier kannst du Text, Bilder oder Videos einfügen.</p>
+    </article>
+
+    <article>
+      <h2>Mein zweiter Blogeintrag</h2>
+      <p>Hier folgt der Text meines zweiten Blogposts.</p>
+    </article>
+  </main>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+
+<section id="section1" class="sec"> <h3>Was sind eigentlich Dioden?</h3>
+  <br>
+  <br>
+  <p>Im Grunde sind Dioden wie ein Ventil, ab einer gewissen Flussspannung, beispielsweise 0,7V bei einer Si p-n Diode öffnet diese und in die andere Richtung schließt sie. Dabei ist zu beachten, dass je nach der Art des Materials und den Dimensionen der Diode unterschiedliche Flussspannungen und Sperrströme auftreten können.</p>
+  <div class="diode-banner"></div>
+  <div class="diode-text">
+    <p>Wie man hier sieht, ist die Diode das zentrale Element.</p>
+  </div>
+
+
+
+</section>
+<section id="section2" class="sec">Section 2 Inhalt</section>
+<section id="section3" class="sec">Section 3 Inhalt</section>
+
+
+
+
+
+        <a href="https://josefhutter.de" class="btn">Zurück zur Hauptseite</a>
+
+
+    </div>
+
+
+
+    <div id="ggb" class="ggb"></div>
+    <div id="ggb2" class="ggb"></div>
+
+
+
+    <script src="../js/script.js" defer></script>
+
+
+<script src="https://cdn.geogebra.org/apps/deployggb.js"></script>
+<script>
+
+//farbwechsel des hintergrunds noch nicht möglich, kommt noch ???
+
+
+let ggbApp;
+
+function init3D() {
+  ggbApp = new GGBApplet({
+    appName: "3d",
+    width: 1500,
+    height: 700,
+    showAlgebraInput: true,
+    showToolBar: false,
+    showMenuBar: false,
+    enableShiftDragZoom: true,
+    perspective: "3D",
+    borderColor: "transparent"
+  }, true);
+
+  ggbApp.inject("ggb");
+
+  function set3DFunctions() {
+    const ggbObj = ggbApp.getAppletObject();
+    if (!ggbObj) {
+      setTimeout(set3DFunctions, 200);
+      return;
+    }
+
+
+    
+
+    // Variable definieren
+    ggbObj.evalCommand("a = 1");
+
+    // Funktion definieren
+    ggbObj.evalCommand("f(x,y) = a*x^2 + y^2");
+
+    //ableitung
+    ggbObj.evalCommand("g(x,y) = Derivative(f)");
+
+    // Fläche korrekt erstellen (x von -5 bis 5, y von -5 bis 5)
+    //ggbObj.evalCommand("Surface(f, x, -5, 5, y, -5, 5)");
+
+    // 3D-Kurve (Helix) optional
+    //ggbObj.evalCommand("Curve[cos(t), sin(t), t, t, 0, 6.28]");
+
+
+      //skallierung
+//gibt es noch nicht
+
+        //Ausrichtung
+    setTimeout(() => {
+      ggbObj.evalCommand("SetViewDirection((1,0,1))");
+    }, 1000);
+  }
+
+  set3DFunctions();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  init3D();
+});
+
+
+
+
+
+
+
+let ggb2;
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  ggb2 = new GGBApplet({
+    appName: "graphing",
+    width: 1500,
+    height: 700,
+    showAlgebraInput: true,
+    showToolBar: false,
+    showMenuBar: false,
+    enableShiftDragZoom: true,
+  }, true);
+
+  ggb2.inject("ggb2");
+
+  function addFunctions() {
+    const ggbObj = ggb2.getAppletObject();
+    if (!ggbObj) {
+      setTimeout(addFunctions, 200);
+      return;
+    }
+
+    ggbObj.evalCommand("h(x) = cos(x)");
+    ggbObj.setColor("h", 0, 255, 0);
+    ggbObj.evalCommand("k(x) = x^3");
+    ggbObj.setColor("k", 255, 128, 0);
+
+
+    // ---------------- Dark/Light Mode Hintergrund ----------------
+
+
+
+  }
+
+  addFunctions();
+});
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </body>
+
+
+
+
+
+
+
+
+
+
+
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+  font-family: 'Poppins', sans-serif;
+}
+:root {
+  --bg-color: #fdfdfd;
+  --text-color: #333;
+  --main-color: #0F49C7;
+  --white-color: #fdfdfd;
+  --shadow-color: rgba(0, 0, 0, .2);
+  --fade-color: rgba(255, 255, 255, 1);
+  --diode-img: url("../images/Diode_white.png");
+}
+
+/* button animations */
+
+.btn {
+  display: inline-block;
+  padding: 1.8rem 3.4rem;
+  background: var(--main-color);
+  border-radius: .6rem;
+  box-shadow: 0 .2rem .5rem var(--shadow-color);
+  font-size: 1.4rem;
+  color: var(--white-color);
+  letter-spacing: .1rem;
+  font-weight: 600;
+  border: .2rem solid transparent;
+  transition: .5s ease;
+  position: relative;
+}
+
+
+
+
+
+.btn:hover {
+  background: var(--bg-color);
+  color: var(--main-color);
+  border-color: var(--main-color);
+}
+
+
+
+
+
+
+
+
+/* Navigation */
+
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  background-color: var(--bg-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3em;
+  box-sizing: border-box;
+  z-index: 1000;
+  box-shadow: 0 2px 10px var(--shadow-color);
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+section {
+  scroll-margin-top: 70px; /* Höhe deiner Navbar */
+}
+
+/* Sticky Effekt */
+.header.sticky .navbar {
+  background: var(--bg-color);
+  box-shadow: 0 2px 10px var(--shadow-color);
+}
+
+/* ---- Links ---- */
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 2em;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar a {
+  position: relative;
+  font-size: 1.4rem;
+  color: var(--text-color);
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+  transition: color 0.3s;
+  margin-right: 3rem;
+}
+
+/* Hover & Active */
+.navbar a:hover {
+  color: var(--main-color);
+}
+
+.navbar a.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: .2rem;
+  background: var(--white-color);
+}
+/*gemacht für js effekt hervorhebung/ noch nicht implementiert*/
+.navbar a.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--main-color);
+  border-radius: 4px;
+}
+
+.header.sticky .navbar a {
+  color: var(--text-color);
+}
+
+.header.sticky .navbar a.active {
+  color: var(--main-color);
+}
+
+
+.dropdown-wrapper {
+  display: flex;
+  justify-content: center;  /* horizontal zentrieren */
+  align-items: center;      /* vertikal (optional) */
+  width: 100%;
+  margin-top: 10px;         /* etwas Abstand nach oben */
+}
+
+
+
+.dropbtn {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 12px 16px;
+  border: none;
+  cursor: pointer;
+  font-size: 1.7rem;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--bg-color);
+  min-width: 160px;
+  box-shadow: 0 2px 10px var(--shadow-color);
+  border-radius: 1px 1px 15px 15px; /* top-left, top-right, bottom-right, bottom-left */  
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: var(--text-color);
+  padding: 12px 16px;
+  display: block;
+  text-decoration: none;
+}
+
+
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+/* Sections */
+.sec {
+  height: 100vh;
+  padding: 40px;
+  font-size: 1.7rem;
+}
+
+
+/* ---- Icons ---- */
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+
+
+
+
+
+
+
+/*Geogebra*/
+
+#ggb {
+  width: 1500px;
+  height: 700px;
+  margin: 40px auto;
+  border: 1px solid #444;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* content */
+
+
+
+.blog {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    padding: 50px;
+}
+
+.blog h1 {
+    font-size: 3.5rem;
+    padding-top: 15px; /* Platz, damit Text nicht überlappt */
+    padding-right: 60px; /* Abstand zum Icon */
+    padding-left: 60px;
+}
+
+.blog h3 {
+    font-size: 2rem
+}
+.blog p {
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+}
+
+
+
+span {
+  color: var(--main-color);
+}
+
+body.dark-mode {
+  --bg-color: #0b061f;
+  --fade-color: rgba(0, 0, 0, 1);
+  --text-color: #fdfdfd;
+  --shadow-color: rgba(0, 0, 0, .7);
+  --diode-img: url("../images/Diode_black.png");
+}
+
+
+html {
+  font-size: 82.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+
+  background-color: var(--bg-color); 
+  color: var(--text-color);
+
+}
+
+
+body::before {
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 40%, var(--fade-color) 100%);
+
+  
+
+}
+
+
+/* Diode */
+
+.diode-banner {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  display: block;
+  aspect-ratio: 16 / 10;
+  background-image: var(--diode-img);
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s ease;
+  border-radius: 10px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+
+.diode-text{
+  flex: 1;
+  word-wrap: break-word;
+}
+
+
+
+
+
+
+
+
+
+
+
+#menu-icon {
+  color: var(--bg-color);           /* Farbe */
+}
+
+#darkMode-icon {
+  position: absolute;
+  top: 25px;       /* Abstand von oben */
+  right: 25px;     /* Abstand von rechts */
+  font-size: 28px;       /* Icon-Größe */
+  color: var(--text-color);           /* Standardfarbe */
+  cursor: pointer;       /* Zeigt Klickbarkeit */
+  transition: 0.3s;      /* Sanfte Übergänge */
+  z-index: 1000; /* Icon bleibt sichtbar über Text */
+}
+
+
+@media (max-width: 500px){
+.blog h1 {
+    font-size: 3rem;
+    padding-top: 10px; /* Platz, damit Text nicht überlappt */
+    padding-right: 10px; /* Abstand zum Icon */
+    padding-left: 10px;
+    padding-bottom: 40px;
+}
+
+#darkMode-icon {
+  right: 10px;     /* Abstand von rechts */
+
+}
+
+#ggb {
+  display: none;
+}
+}
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+

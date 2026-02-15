@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="de">
+
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="../images/icons8-carrier-50.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="../images/icons8-carrier-50.png">
+    <title>Über mich</title>
+
+    <!-- touch swiperjs css -->
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+    <!-- box icons -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />  
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+
+  </head>
+
+
+<body>
+
+
+<div class="image-panel-container">
+  <div class="overlay" id="overlay"></div> <!-- Klickbarer Overlay -->
+  
+<!--  <div class="image-panel" id="imagePanel">
+    <img src="../images/Josef.oben.png" alt="">
+  </div>
+
+  <div class="toggle-triangle" id="toggleTriangle"></div>
+    <div class="overlay" id="overlay"></div>
+</div>
+-->
+
+
+    <div class="about-me"> 
+        <i id="darkMode-icon" class="bx bx-moon"></i>
+        <i class="bx bx-menu" id="menu-icon"></i>
+        <div class="square"></div>
+       <!-- <img src="../images/Josef.oben.png" alt="">-->
+
+        <h1>Wer bin <span> Ich</span>?</h1>
+        <br>
+        <h3>Hier erfahren Sie mehr über meine Person</h3>
+        <br>
+        <p>Ich bin Student der Elektro- und Informationstechnik an der TH Ingolstadt und befinde mich derzeit in meinem ersten Semester.</p>
+        <p>Im Laufe des letzten Jahres habe ich an zahlreichen Projekten mit meiner Klasse gearbeitet und verschiedenste Probleme so bewältigen können.</p>
+        <p>Sei es ein gemeinsames Werkstück in der Metallwerkstatt, bei dem jeder eine Rolle übernahm oder bei einer Lötprüfung in der Elektrowerkstatt.</p>
+        <p>Auch bei Fragen zum Unterricht habe ich mir immer Mühe gegeben das Gelernte auf eine simple und verständliche Weise wiederzugeben.</p>
+        <p>Prüfungen in den verschiedenen Fächern nehme ich immer sehr ernst und bereite mich stets vollumfänglich auf diese vor. Nur so kann ein gutes Ergebniss erzielt werden.</p>
+        <br>
+        <h3>Weshalb habe ich mich für das Studium entschieden?</h3>
+        <br>
+        <p>Wie aus den vorherigen Ausführungen hervorgeht finde ich viel Gefallen an technischen Anwendungen und bin auch immer dahinter neues zu entdecken, sowie auszuprobieren.</p>
+        <p>So war die Entscheidung leicht, dass ich etwas technisches Studieren möchte. Zur Auswahl standen für mich daher zunächst: Informatik, E-Technik, Maschinenbau und Wirtschaftsingenieurwesen.</p>
+        <p>Die Entscheidung zwischen diesen Fachbereichen fiel mir jedoch nicht zu leicht. Mein Ziel war es mit diesem Studium einen möglichst großen Einblick in verschiedene Ingenieurdisziplinen zu erhalten.</p>
+        <p>Damit waren E-Tenchnik und Wirtschaftsingenieurwesen sehr weit oben auf meiner Liste. Warum es letzten Endes E-Technik geworden ist, lag daran, dass bei dem Kombistudiengang Elektro- und Informationstechnik</p>
+        <p>Elektrotechnik mit Informatik kombiniert werden.</p>
+        <p>Die Entscheidung zur TH Ingolstadt zu gehen ist mir hingegen sehr leicht gefallen.</p>
+        <p>Für mich war die Anwendung immer ein sehr wichtiger Aspekt, so hat die Kombination aus Praxis und Therorie den Ausschalg gegeben.</p>
+        <p>Gerade auch im Vergleich zu einem Studium auf einer Universität.</p>
+        <br>
+        <h3>Was mache ich außerhalb meines Studiums?</h3>
+        <br>
+        <p>In meiner Freizeit beschäftige ich mich, neben studentischen Aufgaben, auch mit dem Erlernen von verschiedenen Skills, wie dem Website-bau, sowie das Hosting und dem Erlernen von Python.</p>
+        <p>Darüberhinaus engagiere ich mich beim THW in Neuburg, dort besuche ich derzeit die Grundausbildung und werde hier in Zukunft mit meinem Team verschiedenen Menschen helfen können,</p>
+        <p>nur in einem gut koordinierten Team kann dies gelingen.</p>
+        <p>Im Laufe des Studiums werde ich mich weiter vernetzen und in verschiedenen studentischen Vereinen aktiv werden</p>
+        <br>
+        <p>Im Laufe des Studiums werde ich mich immer weiter entwickeln und lernen, was als Elektro- und Informationstechniker wichtig ist.</p>
+        <p>Nur mit vollem Einsatz kann ein Ergebnis erreicht werden, mit dem ich zufrieden sein kann</p>
+        <br>
+        <br>
+        <br>
+        <br>
+        <a href="https://josefhutter.de" class="btn">Zurück zur Hauptseite</a>
+        <br>
+        <p></p>
+        <br>
+
+
+    </div>
+    
+    <script src="../js/script.js" defer></script>
+
+    </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+  font-family: 'Poppins', sans-serif;
+}
+:root {
+  --bg-color: #fdfdfd;
+  --text-color: #333;
+  --main-color: #0F49C7;
+  --white-color: #fdfdfd;
+  --shadow-color: rgba(0, 0, 0, .2);
+}
+
+/* button animations */
+
+.btn {
+  display: inline-block;
+  padding: 1.8rem 3.4rem;
+  background: var(--main-color);
+  border-radius: .6rem;
+  box-shadow: 0 .2rem .5rem var(--shadow-color);
+  font-size: 1.4rem;
+  color: var(--white-color);
+  letter-spacing: .1rem;
+  font-weight: 600;
+  border: .2rem solid transparent;
+  transition: .5s ease;
+  position: relative;
+}
+
+
+.btn:hover {
+  background: var(--bg-color);
+  color: var(--main-color);
+  border-color: var(--main-color);
+}
+
+
+.square {
+  width: 25%;
+  height: 100vh;
+  background: var(--main-color);
+  position: fixed;
+  top: 10vh;
+ /* left: 20vh; */
+ /* transform: rotate(30deg); */
+  z-index: -1;
+  opacity: 10%;
+}
+
+
+
+
+/* content */
+
+
+
+.about-me {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    padding: 50px;
+    
+}
+
+.about-me h1 {
+    font-size: 3.5rem;
+    padding-top: 10px; /* Platz, damit Text nicht überlappt */
+    padding-right: 60px; /* Abstand zum Icon */
+    padding-left: 60px;
+}
+
+.about-me h3 {
+    font-size: 2rem
+}
+
+.about-me p {
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+}
+
+.about-me img {
+  float: left;
+  padding-top: 10vw;
+  display: block;
+  width: 20vw;               /* sichtbare Breite */
+  max-width: 100%;
+  transition: transform 0.3s ease;
+  transform-origin: left top; /* wächst nach rechts/unten, nicht zentriert */
+
+  /* Maskierung wie gehabt */
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+
+.about-me img:hover {
+  transform: scale(1.05); /* entspricht ca. 5% größer (bei 1vw wachsen ≈ 5–10%, je nach Breite) */
+}
+
+
+.about-me::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+
+
+
+/* Panel fixed links in der Mitte */
+.image-panel {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 0;
+  overflow: hidden;
+  background: transparent;
+  transition: width 0.5s ease, padding 0.5s ease;
+  border-radius: 0 10px 10px 0;
+  z-index: 999;
+}
+
+/* Bild im Panel */
+.image-panel img {
+  width: 100%;
+  height: auto;
+  display: block;
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+}
+
+/* Dreieck */
+.toggle-triangle {
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-right: 20px solid #555;
+  cursor: pointer;
+  position: fixed;
+  top: 50%;
+  left: -10px;
+  transform: translateY(-50%) rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
+/* Overlay */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 998;
+}
+
+/* About-Me Text */
+#aboutMe {
+  transition: margin-left 0.5s ease;
+}
+
+
+
+
+
+span {
+  color: var(--main-color);
+}
+
+
+body.dark-mode {
+  --bg-color: #0b061f;
+  --fade-color: rgba(0, 0, 0, 1);
+  --text-color: #fdfdfd;
+  --shadow-color: rgba(0, 0, 0, .7);
+}
+
+
+html {
+  font-size: 82.5%;
+  overflow-x: hidden;
+}
+
+body {
+  
+  background-color: var(--bg-color); 
+  color: var(--text-color);
+
+}
+
+
+body::before {
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 40%, var(--fade-color) 100%);
+
+  
+
+}
+
+
+#menu-icon {
+  color: var(--bg-color);           /* Farbe */
+}
+
+#darkMode-icon {
+  position: absolute;
+  top: 25px;       /* Abstand von oben */
+  right: 25px;     /* Abstand von rechts */
+  font-size: 28px;       /* Icon-Größe */
+  color: var(--text-color);           /* Standardfarbe */
+  cursor: pointer;       /* Zeigt Klickbarkeit */
+  transition: 0.3s;      /* Sanfte Übergänge */
+  z-index: 1000; /* Icon bleibt sichtbar über Text */
+}
+
+
+
+@media (max-width: 500px)
+{
+.about-me h1 {
+    font-size: 3.3rem;
+    padding-top: 10px; /* Platz, damit Text nicht überlappt */
+    padding-right: 10px; /* Abstand zum Icon */
+    padding-left: 10px;
+    padding-bottom: 20px;
+}
+.about-me img{
+  display: none;
+}
+}
+
+</style>
+
+
+
+
+
+
+<script>
+
+const panel = document.getElementById('imagePanel');
+const triangle = document.getElementById('toggleTriangle');
+const overlay = document.getElementById('overlay');
+const aboutMe = document.getElementById('aboutMe');
+
+function openPanel() {
+  panel.style.width = '25vw';
+  panel.style.padding = '10px';
+  triangle.style.transform = 'translateY(-50%) rotate(0deg)';
+  aboutMe.style.marginLeft = '25vw';
+  overlay.style.display = 'block';
+}
+
+function closePanel() {
+  panel.style.width = '0';
+  panel.style.padding = '0';
+  triangle.style.transform = 'translateY(-50%) rotate(180deg)';
+  aboutMe.style.marginLeft = '0';
+  overlay.style.display = 'none';
+}
+
+triangle.addEventListener('click', () => {
+  if(panel.style.width === '25vw') {
+    closePanel();
+  } else {
+    openPanel();
+  }
+});
+
+overlay.addEventListener('click', closePanel);
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

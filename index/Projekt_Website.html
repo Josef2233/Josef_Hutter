@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="de">
+
+  <head>
+ <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="../images/icons8-carrier-50.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="../images/icons8-carrier-50.png">
+    <title>Mein Blog</title>
+
+    <!-- touch swiperjs css -->
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+    <!-- box icons -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />  
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+  </head>
+
+
+  <body>
+
+        <i id="darkMode-icon" class="bx bx-moon"></i>
+        <i class="bx bx-menu" id="menu-icon"></i>
+
+    <div class="project"> 
+        <h1>Mehr über diese <span>Website</span>!</h1>
+      <br>
+        <h3>Wie ist es zu dieser Website gekommen?</h3>
+      <br>
+      <p>Die Idee zu einer Website war schon lange vorhanden, mich reizte es mich mit dem Webdevelopment auseinanderzusetzen und zu erlernen, was es dazu alles braucht und welche Probleme auf dem Weg zur eigenen Website auftauchen.</p>
+      <p>Alles fing mit einer einfachen HTML Website an, diese bestand aus einem HTML-Dokument und wurde auch nur durch HTML designt, also ohne CSS. Schnell wurde mir aber klar, dass eine Website nur mit HTML nicht so aussieht, wie ich es mir vorgestellt hatte.</p>
+      <p>Das hat mich dazu bewegt mich weiter mir CSS zu befassen, dabei ist HTML im grunde eine Programmiersprache für die Infhalte auf der Website, CSS wird in den meisten Fällen für die Gestaltung verwendet.</p>
+      <p>Nachdem ich mithilfe einiger Tutorials in der Lage war eine Funktionierende Website in VS-Code zu schreiben, ein Texteditor von Microsoft, war für mich schnell klar, das diese Seite auch erreichbar sein sollte.</p>
+      <p>Somit habe ich mich noch weiter mit dem eigentlichen Hosting einer Website auseinandergesetzt, mit allem was dazu gehört</p>
+        <br>
+      <h3>Was war die erste Website?</h3>
+      <br>
+      <p>Angefangen hatte alles mit einer HTML-Seite, diese wurde nur in HTML programmiert und sah dementsprechend aus, jedoch diente diese Seite dazu ersteinmal ein Gefühl für die HTML-Programmierung zu erlangen.</p>
+      <br>
+      <h3>Wie bin ich bei der zweiten Verson vorgegangen?</h3>
+      <br>
+      <br>
+      <p>Warum jetzt diese Überarbeitung? </p>
+      <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <a href="https://josefhutter.de" class="btn">Zurück zur Hauptseite</a>
+
+
+    </div>
+
+    <script src="../js/script.js" defer></script>
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+  font-family: 'Poppins', sans-serif;
+}
+:root {
+  --bg-color: #fdfdfd;
+  --text-color: #333;
+  --main-color: #0F49C7;
+  --white-color: #fdfdfd;
+  --shadow-color: rgba(0, 0, 0, .2);
+}
+
+/* button animations */
+
+.btn {
+  display: inline-block;
+  padding: 1.8rem 3.4rem;
+  background: var(--main-color);
+  border-radius: .6rem;
+  box-shadow: 0 .2rem .5rem var(--shadow-color);
+  font-size: 1.4rem;
+  color: var(--white-color);
+  letter-spacing: .1rem;
+  font-weight: 600;
+  border: .2rem solid transparent;
+  transition: .5s ease;
+  position: relative;
+}
+
+.btn:hover {
+  background: var(--bg-color);
+  color: var(--main-color);
+  border-color: var(--main-color);
+}
+
+
+
+
+
+
+
+/* content */
+
+
+
+.project {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    padding: 50px;
+}
+
+.project h1 {
+    font-size: 3.5rem;
+    padding-top: 10px; /* Platz, damit Text nicht überlappt */
+    padding-right: 60px; /* Abstand zum Icon */
+    padding-left: 60px;
+}
+
+.project h3 {
+    font-size: 2rem
+}
+.project p {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+
+
+
+
+span {
+  color: var(--main-color);
+}
+
+
+
+body.dark-mode {
+  --bg-color: #0b061f;
+  --fade-color: rgba(0, 0, 0, 1);
+  --text-color: #fdfdfd;
+  --shadow-color: rgba(0, 0, 0, .7);
+}
+
+
+html {
+  font-size: 82.5%;
+  overflow-x: hidden;
+}
+
+body {
+
+  background-color: var(--bg-color); 
+  color: var(--text-color);
+
+}
+
+
+body::before {
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 40%, var(--fade-color) 100%);
+
+  
+
+}
+
+
+#menu-icon {
+  color: var(--bg-color);           /* Farbe */
+}
+
+#darkMode-icon {
+  position: absolute;
+  top: 25px;       /* Abstand von oben */
+  right: 25px;     /* Abstand von rechts */
+  font-size: 28px;       /* Icon-Größe */
+  color: var(--text-color);           /* Standardfarbe */
+  cursor: pointer;       /* Zeigt Klickbarkeit */
+  transition: 0.3s;      /* Sanfte Übergänge */
+  z-index: 1000; /* Icon bleibt sichtbar über Text */
+}
+
+
+
+
+</style>
+
+
+
+
+
