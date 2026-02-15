@@ -1,0 +1,2174 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+  font-family: 'Poppins', sans-serif;
+}
+:root {
+  --bg-color: #fdfdfd;
+  --text-color: #333;
+  --main-color: #0F49C7;
+  --white-color: #fdfdfd;
+  --shadow-color: rgba(0, 0, 0, .2);
+  --fade-color: rgba(255, 255, 255, 1);
+  --head-color: #186BBF; /* Beispiel: gelber Kopf Light Mode */
+  --archiv-img: url("../images/Archiv_white.png");
+  --website-img: url("../images/Website_white.png");
+  --studium-img: url("../images/Studium_white.png");
+}
+
+
+.dark-mode {
+  --bg-color: #0b061f;
+  --fade-color: rgba(0, 0, 0, 1);
+  margin: 0;
+  min-height: 200vh;
+  background-image: 
+ /* linear-gradient(
+      to bottom,
+      rgba(0,0,0,1) 0%,
+      rgba(0,0,0,0) 30%,
+      rgba(0,0,0,0) 100%,
+      rgba(0,0,0,1) 100%
+      ),*/
+  
+  url("../images/Bild_WebsiteHitnergrund_Schwarz.png");
+  background-repeat: no-repeat;
+  background-size: cover;   
+  background-position: center 60%; 
+  margin: 0; 
+  --text-color: #fdfdfd;
+  --shadow-color: rgba(0, 0, 0, .7);
+  --fade-color: rgba(0,0,0,0.7); /* Dark Mode Halo */
+  --head-color: #310FC7; /* Beispiel: roter Kopf Dark Mode */
+  --archiv-img: url("../images/Archiv_black.png");
+  --website-img: url("../images/Website_black.png");
+  --studium-img: url("../images/Studium_black.png");
+}
+
+
+html {
+  font-size: 62.5%; 
+  overflow-x: hidden;
+}
+
+body {
+
+  margin: 0;
+  min-height: 200vh; /* genug Scrollbereich */
+  background-image: url("../images/Bild_WebsiteHitnergrund_Weiß.png");
+  background-size: cover;
+  background-position: center 60%;
+  background-attachment: fixed; /* Bild bleibt fixiert */
+  position: relative;
+
+
+
+
+
+  /*margin: 0;
+  min-height: 100vh;
+  background-image: 
+    linear-gradient(
+      to bottom,
+      rgba(255,255,255,1) 0%,
+      rgba(255,255,255,0) 40%,
+      rgba(255,255,255,0) 100%,
+      rgba(255,255,255,1) 100%
+      ),
+*/
+
+   /* linear-gradient(
+      to bottom,
+      rgba(255,255,255,1) 0%,
+      rgba(255,255,255,0) 20%,
+      rgba(255,255,255,0) 50%,      /*alle seiten
+      rgba(255,255,255,1) 100%
+    ),*/
+    /* seitlich radial in Weiß */
+/*    radial-gradient(
+      circle at center,
+      rgba(255,255,255,0) 70%,
+      rgba(255,255,255,1) 100%
+    ),*/
+
+
+  /*  url("../images/Bild_WebsiteHitnergrund_Weiß.png");
+
+  background-repeat: no-repeat;
+  background-size: 100% auto;   
+  background-position: top center; 
+  */
+  background-color: var(--bg-color); 
+  color: var(--text-color);
+  transition: background-color 0.8s ease, color 0.8s ease;
+}
+
+
+body::before {
+  content: "";
+  position: fixed;      /* bleibt in der Viewport-Position, deckt immer das sichtbare Fenster ab */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 30%, var(--fade-color) 100%);
+  transform: translateY(0); /* Start */
+  transition: background 0.8s ease, transform 0.8s ease-out; /*neu wieso wird es rot angezeigt?*/
+  
+ /* background: 
+    linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0) 30%, rgba(0,0,0,0) 70%, rgba(0,0,0,0.5)),       erzeugt einen spotlight effekt
+    radial-gradient(circle at center, rgba(0,0,0,0) 70%, rgba(0,0,0,0.6) 100%);*/
+
+}
+
+.header, .site-content, footer {
+  position: relative;
+  z-index: 1;           /* Inhalt über dem Overlay */
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 7%;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    z-index: 100;
+    transition: .5s;
+}
+
+
+.header.sticky {
+  background: var(--bg-color);
+  box-shadow: 0 .1rem 1rem var(--shadow-color);
+}
+
+
+
+
+
+
+.logo {
+    font-size: 2.5rem;
+    color: var(--main-color);
+    font-weight: 600;
+    cursor: default;
+    margin-right: auto;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar a {
+    position: relative;
+    font-size: 1.7rem;
+    color: var(--white-color);
+    font-weight: 500;
+    margin-right: 3.5rem;
+   /* transition: .3s;  */
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.header.sticky .navbar a {
+  color: var(--text-color);
+}
+
+.header.sticky .navbar a.active {
+  color: var(--main-color);
+}
+
+
+
+.navbar a.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: .2rem;
+    background: var(--white-color);
+}
+
+.header.sticky .navbar a::before {
+  background: var(--main-color);
+  opacity: .7;
+}
+
+
+
+
+#darkMode-icon {
+  font-size: 2.4rem;
+  color: var(--white-color);
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+
+
+
+
+
+.header.sticky #darkMode-icon {
+  color: var(--text-color);
+  opacity: .9;
+}
+
+
+#menu-icon {
+  font-size: 3.6rem;
+  color: var(--text-color);
+  display: none;
+}
+
+
+
+
+
+
+
+section {
+  min-height: 100vh;
+  padding: 10rem 7% 2rem;
+       font-family: 'Poppins', sans-serif;      
+}
+
+.home {
+  display: flex;
+  align-items: center;
+}
+
+
+
+
+.home .home-content {
+  max-width: 80rem;           
+}
+
+.home-content h3 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: .3;
+}
+
+.home-content h1 {
+  font-size: 5.6rem;
+  font-weight: 700;
+  line-height: 1.6;         
+  margin-bottom: .3rem;
+}
+
+.home-content p {
+  font-size: 1.6rem;
+  line-height: 1.3;        
+}
+
+.home-content .social-media a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 4rem;
+  background: transparent;
+  border: .2rem solid var(--main-color);
+  border-radius: 50%;
+  box-shadow: 0 .2rem .5rem var(--shadow-color);
+  font-size: 2rem;
+  color: var(--main-color);
+  margin: 2.5rem  1.5rem 3rem 0;
+  transition: .5s ease;
+}
+
+
+.home-content .social-media a:hover {
+  background: var(--main-color);
+  color: var(--white-color);
+}
+
+
+.btn {
+  display: inline-block;
+  padding: 1.2rem 2.8rem;
+  background: var(--main-color);
+  border-radius: .6rem;
+  box-shadow: 0 .2rem .5rem var(--shadow-color);
+  font-size: 1.8rem;  /*1.6rem*/
+  color: var(--white-color);
+  letter-spacing: .1rem;
+  font-weight: 600;
+  border: .2rem solid transparent;
+  transition: .5s ease;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--bg-color);
+  color: var(--main-color);
+  border-color: var(--main-color);
+}
+
+.btnA {
+  display: inline-block;
+  padding: 1.2rem 2.8rem;
+  background: var(--main-color);
+  border-radius: .6rem;
+  box-shadow: 0 .2rem .5rem var(--shadow-color);
+  font-size: 1.8rem;  /*1.6rem*/
+  color: var(--white-color);
+  letter-spacing: .1rem;
+  font-weight: 600;
+  border: .2rem solid transparent;
+  transition: .5s ease;
+  cursor: pointer;
+  z-index: 10;
+  
+}
+
+.btnA:hover {
+  background-color: var(--bg-color);
+  color: var(--main-color);
+  border-color: var(--main-color);
+}
+
+.home .profession-container {
+  position: absolute;
+  top: 20%;           /* 50 */
+  right: 0;
+  transform: translateY(-20%);        /* -50 */
+  width: 70%;                       /* 768px */
+  height: 100%;                  /* 768px */
+  overflow: hidden;
+  pointer-events: none;
+                              /* gehört weg  red */
+}
+
+
+.home .profession-container .profession-box {
+  position: absolute;
+  top: 20%;                /* 0; */
+  right: 0;
+  width: 768px;
+  height: 768px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: professionRotate 13s ease-out infinite;
+}
+
+@keyframes professionRotate {
+  0%,20% {
+    transform: rotate(0deg);
+  }
+  25%,45% {
+    transform: rotate(-90deg);
+  }
+  50%,70% {
+    transform: rotate(-180deg);
+  }
+  75%,95% {
+    transform: rotate(-270deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+
+.home .profession-box .profession {
+  position: absolute;
+  left: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: var(--main-color);
+  transform: rotate(calc(360deg / 4 * var(--i)));
+  transform-origin: 384px;               /* 384px */
+  background: var(--bg-color);
+  padding: 13px 0;
+}
+
+
+
+.home .profession-box .profession:nth-child(1) i {
+  margin-right: 15px;
+}
+
+.home .profession-box .profession:nth-child(2),
+.home .profession-box .profession:nth-child(4)  {
+  padding-bottom: 20px;
+
+}
+
+.home .profession i {
+  font-size: 3.8rem;
+}
+
+.home .profession h3 {
+  font-size: 3.2rem;
+  line-height: 1;
+  font-weight: 600;
+}
+
+
+.home .profession-box .circle {
+  width: 560px;
+  height: 560px;
+  border: 3px solid var(--main-color);
+  border-radius: 50%;
+}
+
+
+
+.home .overlay .profession-container{   
+
+  position: absolute; /*absolute*/
+  top: 0;                    /* 0; */
+  right: 0;
+  width: 0;
+  height: 0; /*0*/
+  border-top: 650px solid var(--main-color);                 /* 384px */
+  border-right: 385px solid var(--main-color);                 /* 384px */
+  border-bottom: 700px solid var(--main-color);                /* 384px */
+  border-left: 450px solid transparent;                            /* 384px */
+}
+
+
+
+
+.profession-container .overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+
+  /* statt fester Pixel → relative Werte */
+  border-top: 100vh solid var(--main-color); /* Höhe: genau ein Viewport */
+  border-right: 17vw solid var(--main-color); /* Breite: kannst du anpassen */
+  border-left: 20vw solid transparent;        /* Schräge Kante */
+  border-bottom: none; /* unnötig, wir steuern Höhe über border-top */
+  
+  z-index: 1000;
+  pointer-events: none;
+}
+
+
+
+
+
+
+
+.home-img img {
+  position: absolute;
+  bottom: 35%;                         /* 0; */
+  right: 0;                          /* 0; */
+  width: 30rem;     /* 100% */
+  pointer-events: none;
+}
+
+
+span {
+  color: var(--main-color);
+}
+
+
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+
+.about-img img {
+  width: 30vw;
+  border-radius: 50px;
+}
+
+
+
+.heading {
+  font-size: 4.5rem;
+  text-align: center;
+}
+
+.about-content h2 {
+  text-align: left;
+  line-height: 1.2;
+  font-weight: 600;           /* sollte nicht da sein*/
+}
+
+
+.about-content h3 {
+  font-size: 2rem;
+  font-weight: 500;           /* sollte nicht da sein*/
+}
+
+.about-content p {
+  font-size: 1.6rem;
+  margin: 2rem 0 3rem;
+  line-height: 1.3;        /* sollte nicht da sein*/
+}
+
+.services {
+  margin-top: 20rem;            /* sollte nicht da sein*/
+  min-height: auto;
+  padding-bottom: 7rem;
+  padding-top: 20rem;  /*ist neu für die ausrichtung*/
+}
+
+
+
+
+.services h2 {
+  margin-bottom: auto;
+  line-height: 2.5;        /* sollte nicht da sein*/
+  font-weight: 600;           /* sollte nicht da sein*/
+}
+
+
+
+
+
+.services .services-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.services-container .services-box {
+  flex: 1 1 30rem;
+  background: var(--bg-color);
+  padding: 3rem 2rem 4rem;
+  border-radius: 2rem;
+  box-shadow: 0 .1rem .5rem var(--shadow-color);
+  text-align: center;
+  border-top: .6rem solid var(--main-color);
+  border-bottom: .6rem solid var(--main-color);
+  transition: .5s ease;
+}
+
+.services-container .services-box:hover {
+  box-shadow: 0 .1rem 2rem var(--shadow-color);
+  transform: scale(1.02);
+}
+
+
+
+
+.services-box i {
+  font-size: 7rem;
+  color: var(--main-color);
+}
+
+.services-box h3 {
+  font-size: 2.6rem;
+  font-weight: 500;           
+  transition: .5s ease;
+}
+
+.services-box:hover h3 {
+  color: var(--main-color);
+}
+
+
+.services-box p {
+  font-size: 1.6rem;
+  margin: 1rem 0 3rem;
+  line-height: 1.3;      
+}
+
+
+
+
+/* Portfolio neu*/
+
+
+
+
+
+
+.portfolio {
+  margin-top: 60rem;                    
+  padding-bottom: 10rem;  
+  padding-top: 20rem;                  
+}
+
+.portfolio h2 {
+  margin-bottom: 4rem;
+}
+
+.portfolio .portfolio-container {
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  gap: 2.5rem;
+}
+
+
+.portfolio-container .portfolio-box {                             
+  position: relative;
+  display: flex;
+  border-radius: 2rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, .1);
+  overflow: hidden;
+}
+
+
+.portfolio-box img {
+  
+  width: 100%;
+  transition: .5s ease; 
+}
+
+.portfolio-box:hover img {
+  transform: scale(1.1);
+}
+
+
+
+.portfolio-box .portfolio-layer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, .1), var(--main-color));
+  color: var(--white-color);
+  display: flex;
+  justify-content: center; /*center*/
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 0 4rem;
+  opacity: 0;
+  transition: .5s ease;
+
+  overflow: hidden;  /*neu*/
+}
+
+.portfolio-box:hover .portfolio-layer {
+  opacity: 1;
+}
+
+
+
+
+.portfolio-layer h4 {
+  font-size: 3rem;
+  line-height: 1.3;        /* sollte nicht da sein*/
+  font-weight: 500;           /* sollte nicht da sein*/
+}
+
+
+.portfolio h2 {
+  font-weight: 600;             /* sollte nicht da sein*/
+}
+
+.portfolio-layer p {
+  font-size:1.6rem;
+  margin: .3rem 0 1rem;
+}
+
+.portfolio-layer a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 5rem;
+  height: 5rem;
+  background: var(--white-color);
+  border-radius: 50%;
+}
+
+.portfolio-layer a i {
+  font-size: 2rem;
+  color: #333;
+}
+
+
+/*Die Website*/
+
+
+.portfolio-box:hover .website-banner {
+  transform: scale(1.1);
+}
+
+.website-banner {
+  width: 100%;
+  flex: 1; /* wichtig im flex container */
+  aspect-ratio: 16 / 9;
+  background-image: var(--website-img);
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s ease;
+}
+
+
+/*Das Archiv*/
+
+.portfolio-box:hover .archiv-banner {
+  transform: scale(1.1);
+}
+
+.archiv-banner {
+  width: 100%;
+  flex: 1; /* wichtig im flex container */
+  aspect-ratio: 16 / 9;
+  background-image: var(--archiv-img);
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s ease;
+}
+  
+
+/*Das Studium*/
+
+.portfolio-box:hover .studium-banner {
+  transform: scale(1.1);
+}
+
+.studium-banner {
+  width: 100%;
+  flex: 1; /* wichtig im flex container */
+  aspect-ratio: 16 / 9;
+  background-image: var(--studium-img);
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s ease;
+}
+
+
+
+/*Testimonial*/
+
+.testimonial-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 5rem 1rem;
+  padding-bottom: 10rem;                 /* sollte nicht da sein*/
+  height: 60vh;                             /* sollte nicht da sein*/
+}
+
+
+
+
+.testimonial-container .testimonial-wrapper {
+  position: relative;
+  max-width: 90rem;
+  width: 100%;
+  padding: 5rem;
+}
+
+
+.testimonial-wrapper .testimonial-box {
+  padding: 1rem;
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+
+.testimonial-content .testimonial-slide {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: var(--bg-color);
+  border-radius: 2rem;
+  box-shadow: 0 .1rem .5rem var(--shadow-color);
+  padding: 3rem 5rem;
+  border-top: .8rem solid var(--main-color);
+  border-bottom:.8rem solid var(--main-color);
+}
+
+
+.testimonial-slide img {
+  width: 14rem;
+  height: 14rem;
+  object-fit: cover;
+  border-radius: 50%;
+  border: .5rem solid var(--bg-color);
+  outline: .5rem solid var(--main-color);
+}
+
+
+.testimonial-slide h3 {
+  font-size: 2.5rem;
+  margin: 2rem 0;
+  font-family: 'Poppins', sans-serif;              /* sollte nicht da sein*/
+  font-weight: 500;             /* sollte nicht da sein*/
+}
+
+
+.testimonial-slide p {
+  font-size: 1.4rem;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;              /* sollte nicht da sein*/
+}
+
+
+.testimonial-container h2 {
+  font-family: 'Poppins', sans-serif;              /* sollte nicht da sein*/
+  font-weight: 600;             /* sollte nicht da sein*/
+}
+
+
+.testimonial-box .swiper-button-next,
+.testimonial-box .swiper-button-prev {
+  color: var(--main-color);
+}
+
+
+.testimonial-box .swiper-button-next {
+  right: 0;
+}
+
+
+.testimonial-box .swiper-button-prev {
+  left: 0;
+}
+
+
+.testimonial-box .swiper-pagination-bullet {
+  background: rgba(0, 0, 0, .8);
+}
+
+
+.testimonial-box .swiper-pagination-bullet-active {
+  background: var(--main-color);
+}
+
+
+
+/* anderes kontaktformular*/
+
+
+
+.contact {
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--bg-color);
+  text-align: center;
+}
+
+
+.contact .container {
+  height: 10vh;          /* 100vh*/
+  min-height: 700px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.contact .container > div {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+.left {
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 65px 1.5rem 0;
+  display: grid;
+  grid-template-columns: repeat(2. 1fr);
+  align-items: center;
+  position: relative;
+  z-index: 3;
+  gap: 2rem; /*neu*/
+}
+
+
+.contact-heading h1 {
+  font-weight: 600;
+  color: var(--text-color);
+  font-size: 3.5rem;
+  line-height: 1.3;           /* 0.9*/
+  white-space: nowrap; 
+  margin-bottom: 1.2rem;
+}
+
+.text {
+  color: #9ca7b6;  
+  line-height: 1.1;
+  font-size: 1rem;
+}
+
+
+
+.text a {
+  color: var(--main-color); 
+  transition: .3s;
+}
+
+.text a:hover {
+  color: blue;
+  transition: .3s;
+}
+
+
+.form-wrapper {
+  max-width: 32rem;
+  position: relative;
+  z-index: 1;
+}
+
+
+
+
+.contact-form {
+  display: grid;
+  margin-top: 2.55rem;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 2rem;
+  row-gap: 1rem;
+}
+
+.input-wrap {
+  position: relative;
+
+}
+
+
+
+.input-wrap.w-100 {
+  grid-column: span 2;
+}
+
+.contact-input {
+  width: 100%;
+  background-color: rgb(230, 232, 247);
+  padding:1.5rem 1.35rem calc(0.75rem - 2px) 1.35rem;
+  border: none;
+  outline:none;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 20px;
+  color: #0F49C7; /*Textfarbe, evtl. noch änderbar machenvar(--text-color)*/
+  font-weight: 600;
+  font-size: 1.5rem;             /* 0.95rem*/
+  border: 2px solid transparent;
+  box-shadow: 0 0 0 0px var(--shadow-color);           /*hsla(var(--shadow-color), 92%, 54%, 0.169)*/
+  transition: .3s
+}
+
+.contact-input:hover {
+  background-color: rgb(204, 209, 246);
+}
+
+.input-wrap label {
+  position: absolute;
+  top: 50%;
+  left: calc(1.35rem + 2px);
+  transform: translateY(-50%);
+  color: #9ca7b6;
+  pointer-events: none;
+  transition: .25s;
+}
+
+.input-wrap .icon {
+  position: absolute;
+  right: calc(1.35rem + 2px);
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #8c9aaf;
+  font-size: 1.25rem;
+  transition: .3s;
+}
+
+
+textarea.contact-input {
+  resize: none;
+  width: 100;
+  min-height: 150px;
+}
+
+textarea.contact-input ~ label {
+  top: 1.2rem;
+  transform: none;
+}
+
+textarea.contact-input ~ .icon {
+  top: 1.3rem;
+  transform: none;
+}
+
+
+.input-wrap.focus .contact-input {
+  background-color: var(--bg-color);
+  border: 1.2px solid rgba(109, 109, 223, 0.696);
+  box-shadow: 0 0 0 5px rgba(185, 185, 235, 0.696);         /*hsla(blue, 91%, 55%, 0.11)*/
+}
+
+
+.input-wrap.focus label {
+  color: rgba(109, 109, 223, 0.696);
+}
+
+
+.input-wrap.focus .icon {
+  color: rgba(109, 109, 223, 0.696);
+}
+
+
+.input-wrap.not-empty label {
+  font-size:.66rem;
+  top: .75em;
+  transform: translateY(0);
+}
+
+.contact-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1rem;
+  margin-top: 1rem;
+  width: 100%;
+  grid-column: span 2;
+}
+
+
+.from-wrapper .btn {
+  display: inline-block;
+  padding: 1.1rem 2rem;
+  
+}
+
+
+.btn.upload {
+  position: relative;
+  display: inline-block;
+  padding: 1.2rem 2.8rem;
+  background: var(--main-color);
+  border-radius: 0.6rem;
+  box-shadow: 0 0.2rem 0.5rem var(--shadow-color);
+  font-size: 1.6rem;
+  color: var(--white-color);
+  letter-spacing: 0.1rem;
+  font-weight: 600;
+  border: 0.2rem solid transparent;
+  transition: 0.5s ease;
+  cursor: pointer;
+  overflow: hidden;
+  text-align: center;
+}
+
+.btn.upload input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2; /* wichtig */
+}
+
+.btn.upload span {
+  position: relative;
+  z-index: 1;
+  color: var(--white-color); /* wichtig */
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+
+
+
+.btn.upload:hover span{
+  background-color: var(--bg-color);
+  color: var(--main-color);
+  border-color: var(--main-color);
+}
+
+.btn.upload:hover{
+  background-color: var(--bg-color);
+  color: var(--main-color);
+  border-color: var(--main-color);
+}
+
+
+
+
+
+/*
+
+.contact h2 {
+  margin-bottom: 3rem;
+}
+
+.contact form {
+  max-width: 70rem;
+  margin: 1rem auto;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+
+
+.contact form .input-box {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+
+}
+
+
+
+.contact form .input-box input,
+.contact form textarea {
+  width: 100%;
+  padding: 1.5rem;
+  font-size: 1.6rem;
+  color: var(--text-color);
+  background: var(--bg-color);
+  border-radius: .8rem;
+  margin: .7rem 0;
+  box-shadow: 0 .1rem .5rem var(--shadow-color);
+
+}
+ 
+.contact form .input-box input {
+  width: 49%;
+}
+
+.contact form textarea {
+  resize: none;
+}
+
+
+.contact form .btn {
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
+
+*/
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 2rem 7%;
+  background: var(--main-color);
+}
+
+.footer-text a {
+  font-size: 1.6rem;
+  color: var(--white-color);
+
+
+}
+
+
+
+.footer-iconTop a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: .8rem;
+  background: var(--white-color);
+  border-radius: .8rem;
+  border: .2rem solid var(--main-color);
+  outline: .2rem solid transparent;
+  transition: .5s ease;
+
+}
+
+
+
+.footer-iconTop a:hover {
+outline-color: var(--white-color);
+}
+
+
+
+
+.footer-iconTop a i {
+  font-size: 2.4rem;
+  color: #333;
+}
+
+
+
+
+
+
+/* BREAKPOINTS */
+
+
+
+@media (max-width: 1700px) {
+  .home .home-content p {
+    max-width: 44rem;
+  }
+  /*alles ab hier neu*/
+  .home .profession-container .overlay{
+
+
+    border-top: 100vh solid var(--main-color); /* Höhe: genau ein Viewport */
+    border-right: 40vw solid var(--main-color); /* Breite: kannst du anpassen */
+    border-left: 20vw solid transparent;        /* Schräge Kante */
+    border-bottom: none; /* unnötig, wir steuern Höhe über border-top */
+      
+    z-index: 1000;
+    pointer-events: none;
+
+  }
+
+
+}
+
+
+
+
+
+
+
+
+
+@media (max-width: 1300px) {                  /* 1200px */
+  html {
+    font-size: 55%;
+  }
+
+  .home .profession-container {
+    height: 100%;                                         /* 85.8rem */
+  }
+  .home .profession-container .profession-box {
+    right: -12rem;
+    height: 85.8rem;
+  }
+  .home .profession-container .overlay {
+    right: -9rem;                              /* -9rem der rest ist alles neu*/
+
+
+
+      
+
+    border-top: 100vh solid var(--main-color); /* Höhe: genau ein Viewport */
+    border-right: 40vw solid var(--main-color); /* Breite: kannst du anpassen */
+    border-left: 20vw solid transparent;        /* Schräge Kante */
+    border-bottom: none; /* unnötig, wir steuern Höhe über border-top */
+      
+    z-index: 1000;
+    pointer-events: none;
+
+
+  }
+
+  .contact .container {
+
+    position: relative;
+    top: -100px; /*Veränderung der höhe des kontaktformulars */
+  }
+
+ .figure-wrapper {
+    margin-top: 2rem; /* Abstand unter Formular verringern */
+  }
+
+  /* Optional: Figur selber kleiner machen */
+  .figure {
+    width: 100px;
+    height: 150px;
+  }
+
+  /* Optional: Sprechblase neben Figur anpassen */
+  .speech-bubble {
+    bottom: 50%;  /* vertikal mittig zur Figur */
+    left: 120%;   /* rechts neben Figur */
+  }
+
+
+}
+
+
+
+@media (max-width: 1100px) {                                    /* 1024px */   
+  .header {
+    padding: 2rem 3%;
+  }
+  section {
+    padding: 10rem 3% 2rem;
+  }
+  .home .profession-container .profession-box {
+    right: -22rem;
+  }
+  .home .profession-container .overlay {
+      right: 0rem;  /*-15rem alles andere neu, damit man die icons sieht von der navbar*/
+
+      border-top: 100vh solid var(--main-color); /* Höhe: genau ein Viewport */
+      border-right: 40vw solid var(--main-color); /* Breite: kannst du anpassen */
+      border-left: 20vw solid transparent;        /* Schräge Kante */
+      border-bottom: none; /* unnötig, wir steuern Höhe über border-top */
+      
+      z-index: 1000;
+      pointer-events: none;
+  }
+
+   .video {
+    margin-top: 15rem;
+
+   }
+
+
+
+
+}
+
+
+@media (max-width: 991px) {
+  .navbar a:nth-child(1) {                    /*  .navbar a:nth-child(2)  */
+    color: var(--main-color);
+  }
+  .navbar a.active::before {
+    background: var(--main-color);
+    opacity: .7;
+  }
+  .home .home-content {
+    max-width: 50rem;
+  }
+   .home .profession-container .profession-box {
+    right: -45rem;
+   }
+   .home .profession-container .overlay {
+    right: -39.5rem;
+
+
+/*ab hier alles neu für tablets*/
+
+    border-top: 100vh solid var(--main-color); /* Höhe: genau ein Viewport */
+    border-right: 75vw solid var(--main-color); /* Breite: kannst du anpassen */
+    border-left: 20vw solid transparent;        /* Schräge Kante */
+    border-bottom: none; /* unnötig, wir steuern Höhe über border-top */
+      
+    z-index: 1000;
+    pointer-events: none;
+
+  }
+
+   
+   .home-img img {
+    display: none;
+   }
+   .services,
+   .portfolio {
+    padding-bottom: 7rem;
+   }
+   .contact {
+    min-height: auto;
+   }
+   .footer {
+    padding: 2rem 3%;
+   }
+
+
+
+
+
+}
+
+
+
+@media (max-width: 768px) {
+  #menu-icon {
+    display: block;
+  }
+  #darkMode-icon {
+    position: absolute;
+    right: 7rem;
+    font-size: 2.6rem;
+    color: var(--text-color);
+    margin-bottom: .1rem;
+  }
+  .navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 1rem 3%;
+    background: var(--bg-color);
+    border-top: .1rem solid rgba(0, 0, 0, .2);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0 , .1);
+    display: none;
+  }
+  .navbar.active {
+    display: block;
+  }
+
+
+  .navbar a {
+    display: block;
+    font-size: 2rem;
+    margin: 3rem 0;
+    color: var(--text-color);
+
+  }
+  .navbar a:nth-child(1),
+  .navbar a:nth-child(2) {
+    color: var(--text-color);
+  }
+  .navbar a.active {
+    color: var(--main-color);
+  }
+  .navbar a::before {
+    display: none;
+  }
+  .home {
+    padding: 0 3% 23rem;
+    justify-content: center;
+    text-align: center;
+  }
+  .home-content h3 {
+    font-size: 2.6rem;
+  }
+  .home-content h1 {
+    font-size: 5em;
+  }
+  .home-content .socail-media a {
+    margin: 2.5rem .75rem 3rem;
+  }
+
+  .home .profession-container {
+    left: 0;
+    width:100%;
+    height: 100%;
+  }
+  .home .profession-container .profession-box {
+    position: fixed;
+    top: 60%;                 /* 60% */
+    left: 0;
+    border-radius: 0;
+    width: 100%;
+  }
+
+  .home .profession-box .profession {
+    padding: 0 13px;                     /* 0 13px; */
+    left: auto;                           /* auto */
+    transform-origin: 0;
+  }
+
+  .home .profession-box .profession:nth-child(1) {
+    transform: rotate(-90deg) translate(-120px, -210px);
+  }
+  .home .profession-box .profession:nth-child(1) i {
+    margin-right: 0;
+  }
+  .home .profession-box .profession:nth-child(2) {
+    transform: rotate(0deg) translate(0, -335px);
+  }
+  .home .profession-box .profession:nth-child(3) {
+    transform: rotate(90deg) translate(-115px, -450px);
+  }
+  .home .profession-box .profession:nth-child(4) {
+    transform: rotate(180deg) translate(-220px, -335px);
+  }
+
+  .home .profession-box .circle {
+    position: fixed;
+    width: 670px;
+    height: 670px;
+    z-index: -1;
+  }
+
+  .home .profession-container .overlay {
+    position: fixed;
+    top: 80%;                                                /* 70rem */
+    left: 50%;
+    right: 0;
+    transform: rotate(90deg) translate(-50%, 50%) scaleY(3);
+    border-width: 30rem;                                                           /* 23.9rem */
+
+  }
+
+  .about {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .about-content h2 {
+    text-align: center;
+  }
+  .about-img img {
+    width: 70vw;
+    margin-top: -2rem;
+  }
+ .portfolio{
+  padding-top: 12rem; /*zur korrekten ausrichtung*/
+ }
+  .services h2,
+  .portfolio h2 {
+    margin-bottom: 3rem;
+  }
+  .services {
+  margin-top: 20rem;            /* sollte nicht da sein*/
+  min-height: auto;
+  padding-bottom: 7rem;
+  padding-top: 10rem;  /*ist neu für die ausrichtung*/
+}
+  .portfolio .portfolio-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .testimonial-container .testimonial-wrapper {
+    padding: 5rem 0;
+  }
+
+  .testimonial-content .testimonial-slide {
+    padding: 3rem 2rem;
+  }
+  
+  .testimonial-box .swiper-button-next,
+  .testimonial-box .swiper-button-prev {
+    display: none;
+  }
+
+  .overlay{
+    padding: 30rem;   /*damit dieses Eckige verschwindet und nichts verdeckt 20rem*/
+  }
+
+ .video h2 {
+    top: 30rem;              /* weniger Abstand nach oben 5vh */
+    font-size: 3rem;       /* Schriftgröße anpassen */
+    margin: 0;
+  }
+
+
+
+  .left {
+    grid-template-columns: 1fr; /* eine Spalte */
+    gap: 1.5rem;
+    padding: 50px 1rem 0;
+  }
+  
+  .contact .container > div {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+.container {
+  display: flex;
+  flex-direction: column; /* Stapelt Items vertikal */
+  gap: 1rem; /* Abstand zwischen Items */
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column; /* WICHTIG: stapelt vertikal */
+  gap: 1rem;              /* Abstand zwischen den Eingabefeldern */
+  max-width: 400px;       /* optional: Breite */
+  margin: 0 auto;         /* optional: zentriert */
+}
+
+.contact-input,
+.contact-form button {
+  width: 100%;            /* volle Breite */
+  box-sizing: border-box; /* Padding und Border einrechnen */
+}
+
+}
+
+
+
+
+@media (max-width: 617px) {
+  .portfolio .portfolio-container {
+    grid-template-columns: 1fr;
+  }
+
+  /*versuch die überschrift des videos zu fixen neu*/
+  .video h2{
+    margin-top: 10vh;
+    margin-bottom: auto;
+    padding-bottom: 10vh;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+  .Cont {
+    margin: 10vh auto 3vh auto;
+    padding: 1.5rem 1rem 2rem 1rem;
+  }
+  .back-video {
+    max-width: 100%;
+  }
+}
+
+
+@media (max-width: 450px) {
+  html {
+    font-size: 50%;
+  }
+  #darkMode-icon {
+    right: 6rem;
+  }
+  .home {
+    padding: 0 3% 30rem;
+  }
+  .home .profession-box .profession:nth-child(1) {
+    transform: rotate(-90deg) translate(-110px, -220px);
+  }
+  .home .profession-box .profession:nth-child(2) {
+    transform: rotate(0deg) translate(5px, -335px);
+  }
+  .home .profession-box .profession:nth-child(3) {
+    transform: rotate(90deg) translate(-105px, -440px);
+  }
+  .home .profession-box .profession:nth-child(4) {
+    transform: rotate(180deg) translate(-210px, -335px);
+  }
+
+  .contact-form .input-wrap textarea .w-100 input {                          /*.contact form .input-box input*/
+    width: 100%;
+  }
+} 
+
+
+@media (max-width: 365px) {
+  .about-img img {
+    width: 90vw;
+  }
+
+  .footer {
+    flex-direction: column-reverse;
+  }
+  .footer p {
+    text-align: center;
+    margin-top: 2rem;
+  }
+}
+
+
+/*
+
+@media (min-aspect-ratio: 16/9) {
+  .back-video {
+    width: 70%;
+    height: auto;
+  }
+}
+
+
+
+@media (max-aspect-ratio: 16/9) {
+  .back-video {
+    width: auto;
+    height: 70%;
+  }
+}
+*/
+
+
+/* Lebenslauf Button*/
+
+
+.btnL {
+  display: inline-block;
+  padding: 1.2rem 2.8rem;
+  background: var(--main-color);
+  border-radius: .6rem;
+  box-shadow: 0 .2rem .5rem var(--shadow-color);
+  font-size: 1.6rem;
+  color: var(--white-color);
+  letter-spacing: .1rem;
+  font-weight: 600;
+  border: .2rem solid transparent;
+  transition: .5s ease;
+  position: relative;
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+
+
+.btnL::after, .btnL::before {
+    --angle: 0deg;
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 7px;
+    background-image: conic-gradient(from var(--angle),transparent 20%, var(--main-color), transparent);
+    border-radius: .6rem;
+    animation: 3s spin linear infinite;
+}
+
+.btnL::before {
+    filter: blur(1.5rem);
+    opacity: .5;
+}
+
+
+@keyframes spin {
+    from {
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
+    }
+}
+
+
+
+.btnL:hover {
+  background: var(--bg-color);
+  color: var(--main-color);
+  border-color: var(--main-color);
+}
+
+
+
+
+.video {
+
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;           /* verhindert, dass Video rausragt */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5%;
+  text-align: center;
+
+
+
+  /*
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  padding: 0 5%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  align-items: center;
+  overflow: hidden; */
+}
+
+
+.video h2 {
+  position: absolute;
+  top: 20vh;  /*10*/
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 600;
+  font-size: 4.2rem;
+  line-height: 1.3;
+  color: var(--text-color);
+  white-space: nowrap;
+  margin: 0;
+
+  /*
+  font-weight: 600;
+  color: var(--text-color);
+  font-size: 4.2rem;
+  line-height: 1.3;           /* 0.9*/
+ /* white-space: nowrap; 
+  margin-bottom: 1.2rem;
+  margin-top: 10rem;
+  position: absolute;
+  top: 10rem;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;*/
+}
+
+
+
+
+.back-video {
+
+
+  /*position: relative;  */       /* innerhalb des Containers */
+  width: 100%;                /* passt sich der Containerbreite an */
+  height: auto;
+  /*display: block;*/
+  border-radius: 1.5rem;      /* optional */
+  object-fit: cover;  
+/*
+  position: absolute;
+  width: auto;
+  max-width: 70%;
+  position: center;
+  justify-content: center;
+  margin-top: 4rem;
+  left: 15%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  */
+}
+
+.Cont {
+
+  position: relative;
+  width: 80%;                 /* begrenzt die Breite des Containers */
+  max-width: 1200px;
+  /*margin-top: 25rem;
+  margin-bottom: 10rem; */
+  margin: 20vh auto 5vh auto;
+  background: var(--bg-color);
+  border-radius: 2rem;
+  padding: 3rem 2rem 4rem;
+  box-shadow: 0 .1rem .5rem var(--shadow-color);
+  border-top: .6rem solid var(--main-color);
+  border-bottom: .6rem solid var(--main-color);
+  text-align: center;
+  transition: 0.5s ease;
+  overflow: hidden;      
+
+
+  /*
+  position: relative;
+  justify-content: center;
+  text-align: center;
+  flex: 1 1 30rem;
+  background: var(--bg-color);
+  padding: 3rem 2rem 4rem;
+  border-radius: 2rem;
+  box-shadow: 0 .1rem .5rem var(--shadow-color);
+  border-top: .6rem solid var(--main-color);
+  border-bottom: .6rem solid var(--main-color);
+  transition: .5s ease;
+  margin-top: 25rem;
+  margin-bottom: 10rem;
+  width: auto;
+  height: auto; /*auto*/
+  
+}
+
+
+.Cont:hover {
+  box-shadow: 0 .1rem 2rem var(--shadow-color);
+  transform: scale(1.02);
+}
+
+.Cont i {
+  font-size: 7rem;
+  color: var(--main-color);
+}
+
+
+
+
+
+
+/*
+
+
+*::selection {
+  background: var(--main-color);
+  color: var(--bg-color);
+
+}*/
+
+
+
+
+
+
+/* figuren */
+
+
+.figures-layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+}
+
+.figure {
+  width: 120px;
+  height: 180px;      /* feste Höhe = Klickbereich */
+  cursor: pointer;
+  position: relative;  /* für absolute Position des Kopfes */
+  display: flex;
+  align-items: flex-end; /* Kopf am unteren Ende */
+}
+
+.figure::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 250%;
+  height: 250%;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--fade-color, rgba(255,255,255,0.5)) 0%, transparent 70%);
+  z-index: -1;
+  pointer-events: none;
+  transition: background 0.3s ease;
+}
+
+.figure-left{
+ bottom: auto; /* alte 5% entfernen */
+}
+
+.head {
+  position: absolute;  /* Kopf innerhalb der Figur */
+  bottom: 0;           /* Kopf am unteren Ende der Figur */
+  width: 100px;
+  height: 130px;
+  border-radius: 50px 50px 40px 40px;
+  background: radial-gradient(circle, var(--head-color) 0%, rgba(0,0,0,0) 70%);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+
+.eye {
+  position: absolute;
+  top: 35px;
+  width: 28px;
+  height: 28px;
+  background: white;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.left-eye { left: 18px; }
+.right-eye { right: 18px; }
+
+.pupil {
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  width: 14px;
+  height: 14px;
+  background: black;
+  border-radius: 50%;
+  transition: transform 0.05s;
+}
+
+.mouth {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  width: 35px;
+  height: 8px;
+  background: black;
+  border-radius: 4px;
+  transform: translateX(-50%);
+  transition: all 0.2s ease;
+}
+
+/* Gesichtsausdruck, wenn Maus nah dran */
+.figure.surprised .mouth {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  bottom: 30px;
+}
+
+.figure.surprised .pupil {
+  transform: translateY(-3px);
+}
+
+@keyframes blink {
+  0%, 90%, 100% { height: 28px; }
+  95% { height: 4px; }
+}
+
+.eye .pupil {
+  transition: transform 0.05s;
+}
+
+/* Mund für Lächeln */
+.figure.happy .mouth {
+  width: 40px;
+  height: 10px;
+  border-radius: 20px / 10px;
+  bottom: 20px;
+  background: #222;
+}
+
+/* Überraschtes Gesicht (wie zuvor) */
+.figure.surprised .mouth {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  bottom: 30px;
+  background: #222;
+}
+
+
+
+
+.container {
+  display: flex;
+  flex-direction: column; /* jetzt untereinander! */
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: nowrap; /* wrap hier meist nicht mehr nötig */
+  z-index: 0;
+}
+
+
+
+
+
+.figure.nervous .mouth { /* Mund schief für nervös */
+  width: 35px;
+  height: 8px;
+  border-radius: 20px / 8px;
+  transform: translateX(-50%) rotate(-10deg);
+  background: #222;
+}
+
+.figure.nervous .pupil { /* leichte Augenbewegung */
+  transform: translateY(-2px) translateX(1px);
+}
+
+
+.figure.happy-encouraging .mouth {
+  width: 50px;               /* Breite des Mundes */
+  height: 20px;              /* Höhe etwas größer für Kurve */
+  border-bottom-left-radius: 50% 100%;
+  border-bottom-right-radius: 50% 100%;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  background: #222;          /* Farbe des Mundes */
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.figure.happy-encouraging .pupil {
+  transform: translateY(-2px);
+}
+
+/* Animation: Kopf wippt leicht beim Tippen */
+@keyframes head-wiggle {
+  0% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+  100% { transform: rotate(-2deg); }
+}
+
+.figure.happy-encouraging .head {
+  animation: head-wiggle 0.6s infinite;
+}
+
+
+
+.figure.happy-encouraging .eye::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  width: 12px;
+  height: 4px;
+  background: #222;
+  border-radius: 2px;
+  transform: translateX(-50%) rotate(-10deg);
+}
+
+
+
+
+.figure.happy-encouraging .eye.right::before {
+  transform: translateX(-50%) rotate(10deg);
+}
+
+
+.figure-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem; /* Abstand unter Formular */
+}
+
+.figure-wrapper .figure {
+  margin-top: 62.5rem; /* verschiebt die Figur 2rem nach unten */
+}
+
+
+
+
+
+
+
+/* Figuren auf kleinen Bildschirmen ausblenden */
+@media (max-width: 1000px) {
+  .figure {
+    display: none;
+  }
+}
+
+
+/*sprechblase:*/
+
+.speech-bubble {
+  position: absolute;
+  bottom: 0px;
+  left: 65%;
+  transform: translateX(-50%);
+  background: var(--bg-color);
+  border: 2px solid var(--text-color);
+  border-radius: 10px;
+  padding: 10px 15px;
+  box-shadow: 0 4px 8px var(--shadow-color);
+  max-width: 220px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-color);
+  z-index: 10;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Pfeil-Umrandung links */
+.speech-bubble::before {
+  content: "";
+  position: absolute;
+  top: 50%;              /* vertikal mittig */
+  left: -16px;           /* links außerhalb der Box */
+  transform: translateY(-50%);
+  border-width: 14px 14px 14px 0;
+  border-style: solid;
+  border-color: transparent var(--text-color) transparent transparent;
+  z-index: 9;            /* hinter dem Pfeil-Füllung */
+}
+
+/* Pfeil-Füllung links */
+.speech-bubble::after {
+  content: "";
+  position: absolute;
+  top: 50%;              /* vertikal mittig */
+  left: -14px;           /* etwas näher an der Box */
+  transform: translateY(-50%);
+  border-width: 12px 12px 12px 0;
+  border-style: solid;
+  border-color: transparent var(--bg-color) transparent transparent;
+  z-index: 10;           /* vor der Umrandung */
+}
+
+.speech-bubble.hidden {
+  opacity: 0;
+  transform: translateX(-50%) scale(0.9);
+  pointer-events: none;
+}
+
